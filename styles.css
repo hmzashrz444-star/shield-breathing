@@ -1,8 +1,8 @@
 /* Minimal, clean styles */
 :root{
   --duration: 3s;         /* breathing speed */
-  --glow-min: 10px;       /* smallest glow */
-  --glow-max: 26px;       /* largest glow */
+  --glow-min: 6px;       /* smallest glow */
+  --glow-max: 16px;       /* largest glow */
   --bg: #0d0d0d;          /* background */
 }
 
@@ -12,7 +12,7 @@ html, body {
   height: 100%;
   margin: 0;
   background: var(--bg);
-  color: #e7f9ff;
+  color: #d83d1200;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;
 }
 
@@ -38,18 +38,18 @@ html, body {
   object-fit: contain;
 }
 
-@keyframes breathe{
-  0%{
+@keyframes breathe {
+  0% {
     transform: scale(1);
-    filter: drop-shadow(0 0 var(--glow-min) rgba(0,255,255,0.40));
+    filter: drop-shadow(0 0 var(--glow-min) rgba(255, 102, 0, 0.4));  /* orange glow */
   }
-  50%{
+  50% {
     transform: scale(1.08);
-    filter: drop-shadow(0 0 var(--glow-max) rgba(0,255,255,0.95));
+    filter: drop-shadow(0 0 var(--glow-max) rgba(255, 102, 0, 0.95)); /* stronger orange glow */
   }
-  100%{
+  100% {
     transform: scale(1);
-    filter: drop-shadow(0 0 var(--glow-min) rgba(0,255,255,0.40));
+    filter: drop-shadow(0 0 var(--glow-min) rgba(255, 102, 0, 0.4));
   }
 }
 
