@@ -1,0 +1,70 @@
+/* Minimal, clean styles */
+:root{
+  --duration: 3s;         /* breathing speed */
+  --glow-min: 10px;       /* smallest glow */
+  --glow-max: 26px;       /* largest glow */
+  --bg: #0d0d0d;          /* background */
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: #e7f9ff;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;
+}
+
+.stage{
+  display: grid;
+  place-items: center;
+  min-height: 100%;
+  padding: 24px;
+}
+
+.shield{
+  display: grid;
+  place-items: center;
+  width: 220px;
+  height: 220px;
+  animation: breathe var(--duration) ease-in-out infinite;
+  will-change: transform, filter;
+}
+
+.shield img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@keyframes breathe{
+  0%{
+    transform: scale(1);
+    filter: drop-shadow(0 0 var(--glow-min) rgba(0,255,255,0.40));
+  }
+  50%{
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 var(--glow-max) rgba(0,255,255,0.95));
+  }
+  100%{
+    transform: scale(1);
+    filter: drop-shadow(0 0 var(--glow-min) rgba(0,255,255,0.40));
+  }
+}
+
+/* Helper message shown only if the image fails to load */
+.help{
+  display: none;
+  margin-top: 16px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  font-size: 14px;
+}
+.help code{
+  background: rgba(255,255,255,0.08);
+  padding: 1px 6px;
+  border-radius: 6px;
+}
